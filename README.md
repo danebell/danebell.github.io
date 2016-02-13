@@ -1,2 +1,1 @@
-# danebell.github.io
-Dane Bell's Professional Site
+This is the source for Dane Bell's professional site. It relies heavily on [Dave Liepmann's Tufte CSS](https://github.com/daveliepmann/tufte-css).
