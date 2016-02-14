@@ -1,0 +1,18 @@
+.menu {
+  text-align: center;
+  padding-top: 1.0rem;
+}
+
+.hanging {
+  padding-left: 2.0rem ;
+  text-indent: -2.0rem ;
+}
+
+a.subtlelink {
+  color: #f00000;
+  font-variant: small-caps;
+  font-size: 1.2em;
+  border-bottom: none;
+  text-decoration: none;
+  background: none;
+}
