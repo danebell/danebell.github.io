@@ -35,12 +35,20 @@
 	<span class="sidenote"><a href="https://github.com/clulab/reach" target="_blank"><span class="newthought">Reach</span></a> on Github.</span>
 	is a system that uses hand-written rules to extract entities and events from text automatically, using a rule-based language for information extraction called Odin.<label for="sn-odin" class="margin-toggle sidenote-number"></label>
 	<input type="checkbox" id="sn-reach" class="margin-toggle"/>
-	<span class="sidenote">Odin is part of <a href="https://github.com/clulab/processors" target="_blank">Processors</a>, an open-source library of Natural Language Processing tools on Github.</span> Because the rules are hand-written, it is easy to interpret how you got a certain result, and relatively easy to debug. You can explore the results of our work or try out your own sentences at the <a href="http://agathon.sista.arizona.edu:8080/odinweb/" target="_blank"><span class="newthought">Reach</span></a> project site.<input type="checkbox" id="mn-brat" class="margin-toggle"/>
-	<span class="marginnote" id="brattograph">
-	<img src="img/brat.png"><br>This is an annotation by the <a href="http://agathon.sista.arizona.edu:8080/odinweb/bio/enterText" target="_blank"><span class="newthought">Reach</span> Visualizer</a> of a sentence from <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3317133/" target="_blank">a real biomedical paper</a>, displayed using <a href="http://brat.nlplab.org/">brat</a> annotation format.<br>
-	<script src="bindingnetwork.js"></script>
-	<a href="https://en.wikipedia.org/wiki/Molecular_binding" target="_blank">Binding</a> is one of the many kinds of biochemical reactions. It&rsquo;s when two proteins stick together to make a complex protein. By building lots of this little links like this one (again, using text as our guide), we will make much larger directed graphs that are closer to what we want.
-	</span></p>
+	<span class="sidenote">Odin is part of <a href="https://github.com/clulab/processors" target="_blank">Processors</a>, an open-source library of Natural Language Processing tools on Github.</span> Because the rules are hand-written, it is easy to interpret how you got a certain result, and relatively easy to debug. You can explore the results of our work or try out your own sentences at the <a href="http://agathon.sista.arizona.edu:8080/odinweb/" target="_blank"><span class="newthought">Reach</span></a> project site.</p>
+	
+	<figure><img src="img/brat.png"></figure>
+
+	<p>
+	This is an annotation by the <a href="http://agathon.sista.arizona.edu:8080/odinweb/bio/enterText" target="_blank"><span class="newthought">Reach</span> Visualizer</a> of a sentence from <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3317133/" target="_blank">a real biomedical paper</a>, displayed using <a href="http://brat.nlplab.org/">brat</a> annotation format.<br>
+	</p>
+	<span id="bindingnetwork"><script src="bindingnetwork.js"></script></span>
+	<p>
+	It shows a single reaction, a binding<label for="sn-binding" class="margin-toggle sidenote-number"></label>
+	<input type="checkbox" id="sn-binding" class="margin-toggle"/>
+	<span class="sidenote">
+	<a href="https://en.wikipedia.org/wiki/Molecular_binding" target="_blank">Binding</a> is one of the many kinds of biochemical reactions. It&rsquo;s when two proteins stick together to make a complex protein.</span> resulting in a complex of Raf and Ras. By building lots of this little links like this one, and linking those in turn (again, using text as our guide), we will make much larger directed graphs that are closer to what we want.
+	</p>
 
 	<h2 id="t4f">The language of food on Twitter</h2>
 	
