@@ -1,3 +1,4 @@
 dontpost.html
 *.pdf
 .htaccess
+.DS_Store
