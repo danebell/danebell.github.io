@@ -18,3 +18,7 @@ a.subtlelink {
   text-decoration: none;
   background: none;
 }
+
+.sc {
+  font-variant: small-caps;
+}
