@@ -22,3 +22,8 @@ a.subtlelink {
 .sc {
   font-variant: small-caps;
 }
+
+.emphasis {
+  font-variant: small-caps;
+  color: #f00000;
+}
