@@ -27,3 +27,11 @@ a.subtlelink {
   font-variant: small-caps;
   color: #f00000;
 }
+
+.icon {
+  position: relative;
+  /* Adjust these values accordingly */
+  top: 8px;
+  right: 2px;
+  left: 2px;
+}
