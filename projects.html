@@ -1,99 +1,99 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-		<meta charset="UTF-8">
-		<meta content="utf-8" http-equiv="encoding">
-		<meta NAME="KEYWORDS" CONTENT="dane bell, linguistics, natural language processing, nlp, twitter, information extraction, bioinformatics, psycholinguistics, masked priming, sign language, computational linguistics">
-  		<meta NAME="DESCRIPTION" CONTENT="Dane Bell&rsquo;s professional site.">
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta NAME="KEYWORDS" CONTENT="dane bell, linguistics, natural language processing, nlp, twitter, information extraction, bioinformatics, psycholinguistics, masked priming, sign language, computational linguistics">
+    <meta NAME="DESCRIPTION" CONTENT="Dane Bell&rsquo;s professional site.">
+
+    <title>Dane Bell | Projects</title>
+
+    <link rel="stylesheet" href="tufte.css">
+    <link rel="stylesheet" href="db.css">
+    <link rel="stylesheet" href="d3.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script> -->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+
+  <body>
+  <p class="menu"><a class="subtlelink" href="index.html">home</a>&emsp;<a class="subtlelink" href="publications.html">publications</a>&emsp;<a class="subtlelink" href="projects.html">projects</a></p>
+  <h1>Projects</h1>
+
+  <h2 id="reach">Automatically reading biomedical papers</h2>
+
+  <p><span class="newthought">A stunning amount of work</span> has been done on biochemical reactions, literally millions of experiments costing billions of dollars. These experiments produce little pieces to much larger puzzles, such as that of how cancer develops, and how drugs interact with the pathways to cancer. Unfortunately, this knowledge is not in a unified database that you could do statistical inference over, but rather spread out over millions of journal articles using inconsistent technical language that requires domain-specific knowledge.</p>
+
+  <p>
+  The <span class="newthought">Reach</span> project<label for="sn-reach" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-reach" class="margin-toggle"/>
+  <span class="sidenote"><a href="https://github.com/clulab/reach" target="_blank"><span class="newthought">Reach</span></a> on Github.</span>
+  is a system that uses hand-written rules to extract entities and events from text automatically, using a rule-based language for information extraction called Odin.<label for="sn-odin" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-reach" class="margin-toggle"/>
+  <span class="sidenote">Odin is part of <a href="https://github.com/clulab/processors" target="_blank">Processors</a>, an open-source library of Natural Language Processing tools on Github.</span> Because the rules are hand-written, it is easy to interpret how you got a certain result, and relatively easy to debug. You can explore the results of our work or try out your own sentences at the <a href="http://agathon.sista.arizona.edu:8080/odinweb/" target="_blank"><span class="newthought">Reach</span></a> project site.</p>
   
-		<title>Dane Bell | University of Arizona</title>
+  <figure><img src="img/brat.png"></figure>
 
-		<link rel="stylesheet" href="tufte.css">
-		<link rel="stylesheet" href="db.css">
-		<link rel="stylesheet" href="d3.css">
-		<link rel="icon" type="image/png" href="img/favicon.png">
-		<!-- <script type="text/x-mathjax-config">
-  			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-		</script>
-		<script type="text/javascript"
-  			src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-		</script> -->
-		<script src="http://d3js.org/d3.v3.min.js"></script>
-	</head>
+  <p>
+  This is an annotation by the <a href="http://agathon.sista.arizona.edu:8080/odinweb/bio/enterText" target="_blank"><span class="newthought">Reach</span> Visualizer</a> of a sentence from <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3317133/" target="_blank">a real biomedical paper</a>, displayed using <a href="http://brat.nlplab.org/">brat</a> annotation format.<br>
+  </p>
+  <span id="bindingnetwork"><script src="bindingnetwork.js"></script></span>
+  <p>
+  It shows a single reaction, a binding<label for="sn-binding" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-binding" class="margin-toggle"/>
+  <span class="sidenote">
+  <a href="https://en.wikipedia.org/wiki/Molecular_binding" target="_blank">Binding</a> is one of the many kinds of biochemical reactions. It&rsquo;s when two proteins stick together to make a complex protein.</span> resulting in a complex of Raf and Ras. By building lots of this little links like this one, and linking those in turn (again, using text as our guide), we will make much larger directed graphs that are closer to what we want.
+  </p>
 
-	<body>
-	<p class="menu"><a class="subtlelink" href="index.html">home</a>&emsp;<a class="subtlelink" href="publications.html">publications</a>&emsp;<a class="subtlelink" href="projects.html">projects</a></p>
-	<h1>Projects</h1>
+  <p>
+  One of the many aspects of biomedical text that differentiate it from &ldquo;normal&rdquo; text is the way it uses coreference relations. Coreference resolution is linking different mentions in a text (like <em>she</em> and <em>the Speaker of the House</em> in a sentence about Nancy Pelosi) as referring to the same real-world referent&mdash;something that we as readers do constantly, but that&rsquo;s hard to do automatically. Some of the cues that open-domain coreference resolution uses to great effect such as gender and animacy are less important here, since almost all pronouns and other deictic expressions in biomedical texts are third-person inanimate (<em>it</em>, <em>they</em>, <em>its</em>, etc.) in English. On the other hand, we get a lot of additional information constraining how we link our mentions that isn&rsquo;t availble in the open domain, like what kind and how many molecules can interact in a given reaction. In order to improve our automatic reading as much as possible, my colleagues and I adapted<label for="sn-reachcoref" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-reachcoref" class="margin-toggle"/>
+  <span class="sidenote">
+  <a href="http://arxiv.org/abs/1603.03758" target="_blank">Bell, Hahn-Powell, Valenzuela-Escárcega, &amp; Surdeanu (2016)</a></span> an open-domain coreference resolution system to take advantage of this information. Like <span class="newthought">Reach</span>, this system is rule-based and easily interpreted and modified.
+  </p>
 
-	<h2 id="reach">Automatically reading biomedical papers</h2>
+  <h2 id="t4f">The language of food on Twitter</h2>
+  
+  <p><span class="newthought">Social media sites are treasure troves</span> of information about their users being updated by the minute. The social media sites themselves are leveraging this information constantly to improve the effectiveness of marketing to users, but the same data can be used for a wide variety of applications, including public health. Colleagues at the University of Arizona and I use the language of food in a project called Twitter for Food<label for="sn-t4f" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-t4f" class="margin-toggle"/>
+  <span class="sidenote">
+  <a href="https://sites.google.com/site/twitter4food/" target="_blank">Twitter for Food</a></span> to predict demographic data including obesity rate, rate of diabetes, political party, and geographical location (city and state).<label for="mn-obesitygraph" class="margin-toggle">&#8853;</label>
+  <input type="checkbox" id="mn-obesitygraph" class="margin-toggle"/>
+  <span class="marginnote" id="obesitygraph">
+  <script src="obesityline.js"></script>
+  Age-corrected obesity rates in US adults according to 
+  <a href="http://www.cdc.gov/nchs/data/hestat/obesity_adult_11_12/obesity_adult_11_12.htm" target="_blank">CDC data</a>, with diabetes prevalence also from the <a href="http://www.cdc.gov/diabetes/statistics/prev/national/figpersons.htm" target="_blank">CDC</a> divided over US Census data (<a href="http://www.census.gov/popest/data/historical/pre-1980/index.html" target="_blank">1</a>, <a href="http://www.census.gov/popest/data/intercensal/national/index.html" target="_blank">2</a>, <a href="http://www.census.gov/popest/data/intercensal/national/nat2010.html" target="_blank">3</a>, <a href="http://www.census.gov/popest/data/national/totals/2014/index.html" target="_blank">4</a>). Here, overweight means a <a href="http://www.cdc.gov/healthyweight/assessing/bmi/" target="_blank">Body Mass Index (BMI)</a> &ge; 25.0, and obese &ge; 30.0. Although Body Mass Index is not a direct measure of fatness or of healthiness, it is very simple to collect, and does correlate with risk for health problems.
+  </span></p> 
 
-	<p><span class="newthought">A stunning amount of work</span> has been done on biochemical reactions, literally millions of experiments costing billions of dollars. These experiments produce little pieces to much larger puzzles, such as that of how cancer develops, and how drugs interact with the pathways to cancer. Unfortunately, this knowledge is not in a unified database that you could do statistical inference over, but rather spread out over millions of journal articles using inconsistent technical language that requires domain-specific knowledge.</p>
+  <p>
+  Obesity and related health problems such as Type II Diabetes are epidemic in the United States. An estimated 86 million Americans over the age of 20 exhibit signs of pre-diabetes<label for="sn-prediabetes" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-prediabetes" class="margin-toggle"/>
+  <span class="sidenote">
+  <a href="http://www.cdc.gov/diabetes/data/statistics/2014statisticsreport.html" target="_blank">2014 National Diabetes Statistics Report</a></span>, and as much as 70% of these pre-diabetic individuals will eventually develop Type II Diabetes<label for="sn-diabetesrate" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-diabetesrate" class="margin-toggle"/>
+  <span class="sidenote">
+  <a href="http://care.diabetesjournals.org/content/30/3/753.long" target="_blank">Nathan et al. (2007)</a></span>, a chronic and debilitating disease associated with heart disease, stroke, blindness, kidney failure, and amputations. However, previous work<label for="sn-obesityintervention" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-obesityintervention" class="margin-toggle"/>
+  <span class="sidenote">
+  <a href="http://content.healthaffairs.org/content/33/9/1641.short" target="_blank">Ashrafian et al. (2014)</a></span> has demonstrated that intervention by social media has modest but significant success in decreasing obesity, and so what is lacking is efficient identification of obese individuals.
+  </p>
 
-	<p>
-	The <span class="newthought">Reach</span> project<label for="sn-reach" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-reach" class="margin-toggle"/>
-	<span class="sidenote"><a href="https://github.com/clulab/reach" target="_blank"><span class="newthought">Reach</span></a> on Github.</span>
-	is a system that uses hand-written rules to extract entities and events from text automatically, using a rule-based language for information extraction called Odin.<label for="sn-odin" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-reach" class="margin-toggle"/>
-	<span class="sidenote">Odin is part of <a href="https://github.com/clulab/processors" target="_blank">Processors</a>, an open-source library of Natural Language Processing tools on Github.</span> Because the rules are hand-written, it is easy to interpret how you got a certain result, and relatively easy to debug. You can explore the results of our work or try out your own sentences at the <a href="http://agathon.sista.arizona.edu:8080/odinweb/" target="_blank"><span class="newthought">Reach</span></a> project site.</p>
-	
-	<figure><img src="img/brat.png"></figure>
+  <p>In one study<label for="sn-fried2014" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-fried2014" class="margin-toggle"/>
+  <span class="sidenote">
+  <a href="http://arxiv.org/abs/1409.2195" target="_blank">Fried, Surdeanu, Kobourov, Hingle, &amp; Bell (2014)</a></span>, we found that we could classify a whole state as being more or less overweight than median with 80% accuracy (chance would be 51%, because we included the District of Columbia) based on the words in its tweets. But when we attempted this classification on individuals using a classifier trained on state-level data, the result was at chance, meaning that individuals are not strongly represented by or representative of their state on average. Since we want to classify individuals, this is a serious problem. So we developed a system<label for="sn-bell2016b" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-bell2016b" class="margin-toggle"/>
+  <span class="sidenote">
+  <a href="http://arxiv.org/abs/1603.03784" target="_blank">Bell, Fried, Huangfu, Surdeanu, &amp; Kobourov (2016)</a></span> to take a classifier from the state-level data and make a <a href="http://52.4.173.235/owquiz.php" target="_blank">20-questions quiz</a> out of it. The idea was to have a fun game people could play, and to get some more training data if they were willing to share their Twitter usernames with us as well as their BMI. That would help us build a training set for hopefully more accurate classification of individuals. In fact, hundreds of people did take the quiz, although the accuracy of the quiz was not good relative to chance. We&apos;re also pursuing other methods of building such a training set and making a more sophisticated classifier for individuals.
+  </p>
 
-	<p>
-	This is an annotation by the <a href="http://agathon.sista.arizona.edu:8080/odinweb/bio/enterText" target="_blank"><span class="newthought">Reach</span> Visualizer</a> of a sentence from <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3317133/" target="_blank">a real biomedical paper</a>, displayed using <a href="http://brat.nlplab.org/">brat</a> annotation format.<br>
-	</p>
-	<span id="bindingnetwork"><script src="bindingnetwork.js"></script></span>
-	<p>
-	It shows a single reaction, a binding<label for="sn-binding" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-binding" class="margin-toggle"/>
-	<span class="sidenote">
-	<a href="https://en.wikipedia.org/wiki/Molecular_binding" target="_blank">Binding</a> is one of the many kinds of biochemical reactions. It&rsquo;s when two proteins stick together to make a complex protein.</span> resulting in a complex of Raf and Ras. By building lots of this little links like this one, and linking those in turn (again, using text as our guide), we will make much larger directed graphs that are closer to what we want.
-	</p>
-
-	<p>
-	One of the many aspects of biomedical text that differentiate it from &ldquo;normal&rdquo; text is the way it uses coreference relations. Coreference resolution is linking different mentions in a text (like <em>she</em> and <em>the Speaker of the House</em> in a sentence about Nancy Pelosi) as referring to the same real-world referent&mdash;something that we as readers do constantly, but that&rsquo;s hard to do automatically. Some of the cues that open-domain coreference resolution uses to great effect such as gender and animacy are less important here, since almost all pronouns and other deictic expressions in biomedical texts are third-person inanimate (<em>it</em>, <em>they</em>, <em>its</em>, etc.) in English. On the other hand, we get a lot of additional information constraining how we link our mentions that isn&rsquo;t availble in the open domain, like what kind and how many molecules can interact in a given reaction. In order to improve our automatic reading as much as possible, my colleagues and I adapted<label for="sn-reachcoref" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-reachcoref" class="margin-toggle"/>
-	<span class="sidenote">
-	<a href="http://arxiv.org/abs/1603.03758" target="_blank">Bell, Hahn-Powell, Valenzuela-Escárcega, &amp; Surdeanu (2016)</a></span> an open-domain coreference resolution system to take advantage of this information. Like <span class="newthought">Reach</span>, this system is rule-based and easily interpreted and modified.
-	</p>
-
-	<h2 id="t4f">The language of food on Twitter</h2>
-	
-	<p><span class="newthought">Social media sites are treasure troves</span> of information about their users being updated by the minute. The social media sites themselves are leveraging this information constantly to improve the effectiveness of marketing to users, but the same data can be used for a wide variety of applications, including public health. Colleagues at the University of Arizona and I use the language of food in a project called Twitter for Food<label for="sn-t4f" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-t4f" class="margin-toggle"/>
-	<span class="sidenote">
-	<a href="https://sites.google.com/site/twitter4food/" target="_blank">Twitter for Food</a></span> to predict demographic data including obesity rate, rate of diabetes, political party, and geographical location (city and state).<label for="mn-obesitygraph" class="margin-toggle">&#8853;</label>
-	<input type="checkbox" id="mn-obesitygraph" class="margin-toggle"/>
-	<span class="marginnote" id="obesitygraph">
-	<script src="obesityline.js"></script>
-	Age-corrected obesity rates in US adults according to 
-	<a href="http://www.cdc.gov/nchs/data/hestat/obesity_adult_11_12/obesity_adult_11_12.htm" target="_blank">CDC data</a>, with diabetes prevalence also from the <a href="http://www.cdc.gov/diabetes/statistics/prev/national/figpersons.htm" target="_blank">CDC</a> divided over US Census data (<a href="http://www.census.gov/popest/data/historical/pre-1980/index.html" target="_blank">1</a>, <a href="http://www.census.gov/popest/data/intercensal/national/index.html" target="_blank">2</a>, <a href="http://www.census.gov/popest/data/intercensal/national/nat2010.html" target="_blank">3</a>, <a href="http://www.census.gov/popest/data/national/totals/2014/index.html" target="_blank">4</a>). Here, overweight means a <a href="http://www.cdc.gov/healthyweight/assessing/bmi/" target="_blank">Body Mass Index (BMI)</a> &ge; 25.0, and obese &ge; 30.0. Although Body Mass Index is not a direct measure of fatness or of healthiness, it is very simple to collect, and does correlate with risk for health problems.
-	</span></p> 
-
-	<p>
-	Obesity and related health problems such as Type II Diabetes are epidemic in the United States. An estimated 86 million Americans over the age of 20 exhibit signs of pre-diabetes<label for="sn-prediabetes" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-prediabetes" class="margin-toggle"/>
-	<span class="sidenote">
-	<a href="http://www.cdc.gov/diabetes/data/statistics/2014statisticsreport.html" target="_blank">2014 National Diabetes Statistics Report</a></span>, and as much as 70% of these pre-diabetic individuals will eventually develop Type II Diabetes<label for="sn-diabetesrate" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-diabetesrate" class="margin-toggle"/>
-	<span class="sidenote">
-	<a href="http://care.diabetesjournals.org/content/30/3/753.long" target="_blank">Nathan et al. (2007)</a></span>, a chronic and debilitating disease associated with heart disease, stroke, blindness, kidney failure, and amputations. However, previous work<label for="sn-obesityintervention" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-obesityintervention" class="margin-toggle"/>
-	<span class="sidenote">
-	<a href="http://content.healthaffairs.org/content/33/9/1641.short" target="_blank">Ashrafian et al. (2014)</a></span> has demonstrated that intervention by social media has modest but significant success in decreasing obesity, and so what is lacking is efficient identification of obese individuals.
-	</p>
-
-	<p>In one study<label for="sn-fried2014" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-fried2014" class="margin-toggle"/>
-	<span class="sidenote">
-	<a href="http://arxiv.org/abs/1409.2195" target="_blank">Fried, Surdeanu, Kobourov, Hingle, &amp; Bell (2014)</a></span>, we found that we could classify a whole state as being more or less overweight than median with 80% accuracy (chance would be 51%, because we included the District of Columbia) based on the words in its tweets. But when we attempted this classification on individuals using a classifier trained on state-level data, the result was at chance, meaning that individuals are not strongly represented by or representative of their state on average. Since we want to classify individuals, this is a serious problem. So we developed a system<label for="sn-bell2016b" class="margin-toggle sidenote-number"></label>
-	<input type="checkbox" id="sn-bell2016b" class="margin-toggle"/>
-	<span class="sidenote">
-	<a href="http://arxiv.org/abs/1603.03784" target="_blank">Bell, Fried, Huangfu, Surdeanu, &amp; Kobourov (2016)</a></span> to take a classifier from the state-level data and make a <a href="http://52.4.173.235/owquiz.php" target="_blank">20-questions quiz</a> out of it. The idea was to have a fun game people could play, and to get some more training data if they were willing to share their Twitter usernames with us as well as their BMI. That would help us build a training set for hopefully more accurate classification of individuals. In fact, hundreds of people did take the quiz, although the accuracy of the quiz was not good relative to chance. We&apos;re also pursuing other methods of building such a training set and making a more sophisticated classifier for individuals.
-	</p>
-
-	</body>
+  </body>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
